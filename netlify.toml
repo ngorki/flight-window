@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# adsb.lol and adsb.fi don't send CORS headers, so the browser reaches them
+# through these same-origin proxies (mirrors the dev proxy in vite.config.ts).
+[[redirects]]
+  from = "/adsb/*"
+  to = "https://api.adsb.lol/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/adsbfi/*"
+  to = "https://opendata.adsb.fi/:splat"
+  status = 200
+  force = true

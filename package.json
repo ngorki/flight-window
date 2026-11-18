@@ -1,0 +1,30 @@
+{
+  "name": "flight-window",
+  "private": true,
+  "version": "0.1.0",
+  "description": "See which planes are in front of your window right now: live flights inside your view cone, ordered left to right.",
+  "license": "MIT",
+  "author": "ngorki",
+  "keywords": [
+    "ads-b",
+    "flights",
+    "aircraft",
+    "plane-spotting",
+    "vite"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^6.4.4",
+    "vitest": "^3.2.7"
+  }
+}

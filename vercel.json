@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/adsb/:path*", "destination": "https://api.adsb.lol/:path*" },
+    { "source": "/adsbfi/:path*", "destination": "https://opendata.adsb.fi/:path*" }
+  ]
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flight Window</title>
+    <meta name="description" content="See which planes are in front of your window right now: live flights inside your view cone, ordered left to right." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈</text></svg>" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Flight Window</h1>
+        <p id="view-summary"></p>
+      </div>
+      <p id="status" aria-live="polite"></p>
+    </header>
+
+    <main>
+      <p id="error" role="alert" hidden></p>
+      <section id="strip" aria-label="Window view"></section>
+      <section id="list" aria-label="Aircraft in view, left to right"></section>
+
+      <details id="settings">
+        <summary>View settings</summary>
+        <form id="settings-form" autocomplete="off">
+          <fieldset>
+            <legend>Your location</legend>
+            <label>Latitude <input name="lat" type="number" step="any" min="-90" max="90" placeholder="51.4700" /></label>
+            <label>Longitude <input name="lon" type="number" step="any" min="-180" max="180" placeholder="-0.4543" /></label>
+            <label>Elevation (m) <input name="observerAltM" type="number" step="1" /></label>
+            <button type="button" id="locate">Use my location</button>
+          </fieldset>
+          <fieldset>
+            <legend>View cone</legend>
+            <label class="wide">Facing (°, 0 = north)
+              <span class="pair">
+                <input name="facing" type="range" min="0" max="359" step="1" />
+                <input name="facing" type="number" min="0" max="359" step="1" />
+              </span>
+            </label>
+            <label>Cone width (°) <input name="coneWidth" type="number" min="1" max="360" step="1" /></label>
+            <label>Max distance (km) <input name="maxDistKm" type="number" min="1" max="460" step="1" /></label>
+            <label>Min elevation (°) <input name="minElev" type="number" min="-10" max="89" step="0.5" /></label>
+            <label>Refresh (s) <input name="refreshS" type="number" min="15" max="600" step="1" /></label>
+          </fieldset>
+        </form>
+      </details>
+    </main>
+
+    <footer>Live positions from <a href="https://adsb.lol" target="_blank" rel="noopener">adsb.lol</a> or <a href="https://adsb.fi" target="_blank" rel="noopener">adsb.fi</a>, moved forward between updates. Routes from <a href="https://adsb.im" target="_blank" rel="noopener">adsb.im</a>.</footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
